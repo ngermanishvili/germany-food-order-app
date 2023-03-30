@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import classes from "./AvailableMeals.module.css";
-import Card from "../UI/Card";
-import MealItem from "./MealItem";
+import { useEffect, useState } from 'react';
 
+import Card from '../UI/Card';
+import classes from './AvailableMeals.module.css';
+import MealItem from "./MealItem";
 
 const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
@@ -10,15 +10,17 @@ const AvailableMeals = () => {
   const [httpError, setHttpError] = useState();
 
   useEffect(() => {
-    setIsLoading(true);
     const fetchMeals = async () => {
-      const response = await fetch('https://meals-food-order-dummy-default-rtdb.firebaseio.com/meals.json');
+      const response = await fetch(
+        'https://meals-food-order-dummy-default-rtdb.firebaseio.com/meals.json'
+      );
 
       if (!response.ok) {
         throw new Error('Something went wrong!');
       }
 
       const responseData = await response.json();
+
       const loadedMeals = [];
 
       for (const key in responseData) {
@@ -27,35 +29,34 @@ const AvailableMeals = () => {
           name: responseData[key].name,
           description: responseData[key].description,
           price: responseData[key].price,
-
-        })
+        });
       }
-      setMeals(loadedMeals); // set meals to loadedMeals
-      setIsLoading(false); // after fetching data, set loading to false
-    }
 
-    fetchMeals().catch(error => {
+      setMeals(loadedMeals);
+      setIsLoading(false);
+    };
+
+    fetchMeals().catch((error) => {
       setIsLoading(false);
       setHttpError(error.message);
-    })
+    });
   }, []);
 
   if (isLoading) {
     return (
       <section className={classes.MealsLoading}>
-        <p> Loading... </p>
+        <p>Loading...</p>
       </section>
-    )
+    );
   }
 
   if (httpError) {
     return (
       <section className={classes.MealsError}>
-        <p> {httpError} </p>
+        <p>{httpError}</p>
       </section>
-    )
+    );
   }
-
 
   const mealsList = meals.map((meal) => (
     <MealItem
