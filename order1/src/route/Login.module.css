@@ -1,0 +1,111 @@
+.container {
+  width: 100%;
+  height: 99vh;
+  background-image: url("../assets/desktop.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+}
+
+.tablet {
+  background-image: url("../assets/Group4.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  width: 500px;
+  height: 500px;
+  bottom: 10px;
+  right: 10px;
+}
+.tablet2 {
+  background-image: url("../assets/Group3.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  width: 400px;
+  height: 400px;
+  bottom: 10px;
+  right: 10px;
+}
+
+.logo {
+  text-transform: uppercase;
+  display: flex;
+  color: #fff;
+  justify-content: space-around;
+}
+
+.button {
+  border: none;
+  padding: 10px 20px;
+  width: 100%;
+  max-width: 250px;
+  text-align: center;
+  border-radius: 15px;
+  text-decoration: none;
+  font-size: 19px;
+  background-color: #000;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+  z-index: 222;
+}
+
+.button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.luffy {
+  width: 300px;
+  height: 400px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.luffy img {
+  width: 100%;
+  max-width: 150px;
+  height: 200px;
+  position: absolute;
+  right: 50px;
+  top: 20%;
+  z-index: 0;
+}
+
+@media only screen and (max-width: 1024px) {
+  .button {
+    display: block;
+    text-align: center;
+    width: 100%; /* Set the button width to 100% */
+    max-width: 300px;; /* Remove the max-width property */
+    position: absolute;
+    top: 10%;
+    background-color: #000;
+    color: #fff;
+    z-index: 1; /* Add a higher z-index value to ensure the button is above other elements */
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .button {
+    display: block;
+    text-align: center;
+    width: 100%; /* Set the button width to 100% */
+    max-width: 250px;; /* Remove the max-width property */
+    position: absolute;
+    top: 40%;
+    background-color: #000;
+    color: #fff;
+    z-index: 1; /* Add a higher z-index value to ensure the button is above other elements */
+  }
+}
+
+
