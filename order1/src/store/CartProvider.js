@@ -70,12 +70,11 @@ const CartProvider = (props) => {
 
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem('cart'));
-    console.log(storedCart); // Check the retrieved value in the console
     if (storedCart) {
-      dispatchCartAction({ type: 'REPLACE', cart: storedCart }); // Pass `cart` instead of `storedCart`
+      dispatchCartAction({ type: 'REPLACE', cart: storedCart });
     }
-    
   }, []);
+
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cartState));
@@ -89,12 +88,20 @@ const CartProvider = (props) => {
     dispatchCartAction({ type: 'REMOVE', id: id });
   };
 
+  const clearCartHandler = () => {
+    dispatchCartAction({ type: 'REPLACE', cart: defaultCartState });
+  };
+
   const cartContext = {
     items: cartState.items,
     totalAmount: cartState.totalAmount,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
+    clearCart: clearCartHandler, // Add the clearCart function to the context
+
   };
+
+
 
   return (
     <CartContext.Provider value={cartContext}>
