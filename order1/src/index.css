@@ -5,9 +5,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #000;
+  background-image: url('https://poketheory.com.sg/assets/images/atlas-core-active-storage/uploads/poke-theory/home/yellow_bg.jpg');
 }
 
+h1{
+  cursor: pointer;
+}
+h1:hover{
+  color: #FFC300;
+  transition: 1s;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
