@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 import Modal from '../UI/Modal';
 import CartItem from './CartItem';
@@ -33,6 +33,10 @@ const Cart = (props) => {
       ))}
     </ul>
   );
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cartCtx.items));
+  }, [cartCtx.items]);
 
   return (
     <Modal onClose={props.onClose}>
