@@ -4,14 +4,17 @@
   left: 0;
   width: 100%;
   height: 4rem;
-  background-color: #8a2b06;
+  background-color: #000;
   color: white;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 0 10%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   z-index: 10;
+}
+
+.header h1{
+  color: #fff;
 }
 
 .main-image {
@@ -22,8 +25,8 @@
 }
 
 .main-image img {
-  width: 110%;
+  width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: rotateZ(-5deg) translateY(-4rem) translateX(-1rem);
+  transform: rotateZ(-deg) translateY(-2rem) translateX(-1rem);
 }
